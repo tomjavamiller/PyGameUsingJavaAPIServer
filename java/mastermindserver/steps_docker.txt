@@ -1,0 +1,16 @@
+ 1888  ls ./build/libs/mastermind-0.0.1-SNAPSHOT.jar
+ 1889  vi Dockerfile
+
+    $ cat Dockerfile 
+    #
+    #FROM openjdk:8-jdk-alpine
+    FROM openjdk:11
+    LABEL maintainer="tom.com"
+    MAINTAINER tom.com
+    ADD build/libs/mastermind-0.0.1-SNAPSHOT.jar theJar.jar
+    ENTRYPOINT ["java","-jar","/theJar.jar"]
+
+ 1894  docker build -t springboot-demo:latest .
+ 1895  docker images
+ 1896  docker run -p 8081:8080 springboot-demo
+
